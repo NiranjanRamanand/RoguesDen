@@ -1,9 +1,11 @@
+package roguesden;
+
 import org.powbot.api.script.AbstractScript;
 import org.powbot.api.script.ScriptManifest;
 import org.powbot.mobile.script.ScriptManager;
 import org.powbot.mobile.service.ScriptUploader;
-import states.*;
-import states.util.Info;
+import roguesden.states.*;
+import roguesden.states.util.Info;
 
 import java.util.*;
 

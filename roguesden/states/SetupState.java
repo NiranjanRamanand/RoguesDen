@@ -1,8 +1,8 @@
-package states;
+package roguesden.states;
 
 import org.powbot.api.Condition;
 import org.powbot.api.rt4.*;
-import states.util.Info;
+import roguesden.states.util.Info;
 
 import static org.powbot.api.rt4.Movement.step;
 

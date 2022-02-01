@@ -1,15 +1,13 @@
-package states;
+package roguesden.states;
 
 import org.powbot.api.Condition;
 import org.powbot.api.rt4.Bank;
 import org.powbot.api.rt4.Npcs;
 import org.powbot.api.rt4.Objects;
 import org.powbot.api.rt4.Players;
-import states.util.Info;
+import roguesden.states.util.Info;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.powbot.api.rt4.Movement.step;
 

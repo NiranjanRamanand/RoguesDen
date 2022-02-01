@@ -1,9 +1,8 @@
-package states;
+package roguesden.states;
 
 import org.powbot.api.Condition;
 import org.powbot.api.rt4.Movement;
 import org.powbot.api.rt4.Players;
-import states.util.Info;
 
 /*
     Enables run

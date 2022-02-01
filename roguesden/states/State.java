@@ -1,4 +1,4 @@
-package states;
+package roguesden.states;
 
 public interface State {
 

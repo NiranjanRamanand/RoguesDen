@@ -1,4 +1,4 @@
-package states.util;
+package roguesden.states.util;
 
 import org.powbot.api.Tile;
 import org.powbot.api.rt4.Bank;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /*
-    Information shared across states and miscellaneous util functions
+    Information shared across roguesden.states and miscellaneous util functions
  */
 
 public class Info {

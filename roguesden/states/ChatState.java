@@ -1,9 +1,9 @@
-package states;
+package roguesden.states;
 
 import org.powbot.api.Condition;
 import org.powbot.api.rt4.Chat;
 import org.powbot.api.rt4.Npcs;
-import states.util.Info;
+import roguesden.states.util.Info;
 
 import java.util.List;
 
