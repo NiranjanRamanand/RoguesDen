@@ -9,6 +9,7 @@ import static org.powbot.api.rt4.Movement.step;
 
 public class NavigateState implements State {
     private final int flashPowder = 5559;
+    private final int gateId = 7255;
 
     @Override
     public boolean run() {
@@ -32,7 +33,7 @@ public class NavigateState implements State {
                     // Obstacle exception: requires id AND tile
                     if (t.equals(new Tile(2989, 5057, 1))) {
                         GameObject gate = Objects.stream().
-                                filter(o -> o.id() == 7255 && o.tile(). equals(new Tile(2989, 5057, 1))).
+                                filter(o -> o.id() == gateId && o.tile(). equals(new Tile(2989, 5057, 1))).
                                 first();
 
                         gate.click();
@@ -45,8 +46,8 @@ public class NavigateState implements State {
                     if (t.equals(new Tile(3009, 5063, 1))) {
                         Info.sendString("Stunning guards");
 
-                        if (Inventory.stream().id(5559).count() > 0) {
-                            if (Inventory.selectedItem().id() == 5559) {
+                        if (Inventory.stream().id(flashPowder).count() > 0) {
+                            if (Inventory.selectedItem().id() == flashPowder) {
                                 Npc guard = Npcs.stream().id(3191).first();
 
                                 if (guard.valid()) {
@@ -61,10 +62,10 @@ public class NavigateState implements State {
                             }
                         } else {
                             Info.sendString("Picking up flash powder");
-                            GroundItem g = GroundItems.stream().filter(o -> o.id() == 5559 && o.tile().equals(new Tile(3009, 5063, 1))).first();
+                            GroundItem g = GroundItems.stream().filter(o -> o.id() == flashPowder && o.tile().equals(new Tile(3009, 5063, 1))).first();
 
                             g.click();
-                            Condition.wait(() -> Inventory.stream().id(5559).count() > 0, 500, 10);
+                            Condition.wait(() -> Inventory.stream().id(flashPowder).count() > 0, 500, 10);
 
                         }
 

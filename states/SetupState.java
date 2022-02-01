@@ -13,15 +13,16 @@ import static org.powbot.api.rt4.Movement.step;
 
 public class SetupState implements State {
 
-    final int [] staminaPots = {12625, 12627, 12629, 12631};
-    final int doorId = 7256;
+    private final int [] staminaPots = {12625, 12627, 12629, 12631};
+    private final int doorId = 7256;
+    private final int energyThreshold = 70;
 
     @Override
     public boolean run() {
         if(!Npcs.stream().name("Brian O'Richard").first().reachable()) return false;
 
 
-        if(Movement.energyLevel() > 70 && !Inventory.isEmpty()) {
+        if(Movement.energyLevel() > energyThreshold && !Inventory.isEmpty()) {
             Info.sendString("Depositing inventory");
             if(Bank.opened()) {
                 Bank.depositInventory();
@@ -30,7 +31,7 @@ public class SetupState implements State {
                 Bank.open();
                 Condition.wait(() -> Bank.opened(), 500, 10);
             }
-        } else if (Movement.energyLevel() > 70) { // Do boosting after first code thru
+        } else if (Movement.energyLevel() > energyThreshold) { // Do boosting after first code thru
             if(Objects.stream().id(doorId).nearest().first().tile().distanceTo(Players.local().tile()) < 5) {
                 Info.sendString("Clicking door");
                 Objects.stream().id(doorId).first().click();
@@ -40,7 +41,7 @@ public class SetupState implements State {
                 step(Objects.stream().id(doorId).nearest().first().tile());
                 Condition.wait(() -> Objects.stream().id(doorId).nearest().first().tile().distanceTo(Players.local().tile()) < 5, 500, 3);
             }
-        } else if (Movement.energyLevel() <= 70){
+        } else if (Movement.energyLevel() <= energyThreshold){
             Info.sendString("Restoring run");
             if(Inventory.stream().id(staminaPots).count() > 0) {
                 if(!Bank.opened()) {
